@@ -9,58 +9,57 @@ using DAL.Interfaces.Repositories;
 
 namespace DAL.Repositories
 {
-    public class CartRepository : ICartRepository
+    public class UserRepository : IUserRepository
     {
         private readonly ShopContext _context;
 
-        public CartRepository(ShopContext context)
+        public UserRepository(ShopContext context)
         {
             _context = context;
         }
 
-        public async Task AddCartAsync(CartDb model)
+        public async Task AddUserAsync(UserDb model)
         {
             if (model == null)
             {
                 throw new DatabaseException(DatabaseException.ErrorType.InvalidArgument);
             }
 
-            _context.CartsDB.Add(model);
+            _context.UsersDb.Add(model);
 
             await _context.SaveChangesAsync();
         }
-
-        public async Task<CartDb> GetByIdAsync(int id)
+        public async Task<UserDb> GetByIdAsync(int id)
         {
-            var dbCarts = await _context.CartsDB.Where(c => c.Id == id).ToListAsync();
+            var dbUsers = await _context.UsersDb.Where(p => p.Id == id).ToListAsync();
 
-            if (dbCarts.Count != 0)
+            if (dbUsers.Count != 0)
             {
                 throw new DatabaseException(DatabaseException.ErrorType.WrongId,
-                    "This id doesn't match any cart");
+                    "This id doesn't match any user");
             }
 
-            return dbCarts[0];
+            return dbUsers[0];
         }
 
-        public async Task<List<CartDb>> GetAllCartsAsync()
+        public async Task<List<UserDb>> GetAllUsersAsync()
         {
-            return await _context.CartsDB.ToListAsync();
+            return await _context.UsersDb.ToListAsync();
         }
 
-        public async Task DeleteCart(int id)
+        public async Task DeleteUser(int id)
         {
-            var dbCarts = await _context.CartsDB.Where(c => c.Id == id).ToListAsync();
+            var dbUsers = await _context.UsersDb.Where(p => p.Id == id).ToListAsync();
 
-            if (dbCarts.Count != 0)
+            if (dbUsers.Count != 0)
             {
                 throw new DatabaseException(DatabaseException.ErrorType.WrongId,
-                    "This id doesn't match any cart");
+                    "This id doesn't match any user");
             }
 
-            var dbCart = dbCarts[0];
+            var dbUser = dbUsers[0];
 
-            _context.CartsDB.Remove(dbCart);
+            _context.UsersDb.Remove(dbUser);
 
             await _context.SaveChangesAsync();
         }

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using BLL.Interfaces.Models;
 using BLL.Interfaces.Services;
+using DAL.Interfaces.Entities;
 using DAL.Interfaces.Repositories;
 
 namespace BLL.Services
@@ -17,26 +19,23 @@ namespace BLL.Services
 
         public async Task AddCartProductAsync(CartProduct cartProduct)
         {
-            //нужен маппинг
-            //await _repository.AddCartProductAsync();
+            var cartProductDb = Mapper.Map<CartProductDb>(cartProduct);
+
+            await _repository.AddCartProductAsync(cartProductDb);
         }
 
         public async Task<CartProduct> GetByIdAsync(int cartId, int productId)
         {
-            var dbCart = await _repository.GetByIdAsync(cartId, productId);
+            var dbCartProduct = await _repository.GetByIdAsync(cartId, productId);
 
-            //тут нужен маппинг
-
-            return new CartProduct();
+            return Mapper.Map<CartProduct>(dbCartProduct);
         }
 
         public async Task<List<CartProduct>> GetAllCartProductsAsync()
         {
-            var dbCart = await _repository.GetAllCartProductsAsync();
+            var dbCartProduct = await _repository.GetAllCartProductsAsync();
 
-            //тут нужен маппинг из dbCart в Cart
-
-            return new List<CartProduct>();
+            return Mapper.Map<List<CartProduct>>(dbCartProduct);
         }
 
         public async Task DeleteCartProductAsync(int cartId, int productId)

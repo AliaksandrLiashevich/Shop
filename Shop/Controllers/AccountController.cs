@@ -1,16 +1,21 @@
-﻿using Shop.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Security;
+using AutoMapper;
+using BLL.Interfaces.Models;
+using BLL.Interfaces.Services;
+using Shop.Models;
 
 namespace Shop.Controllers
 {
     public class AccountController : Controller
     {
-        public ActionResult Login()
+        private readonly IUserService _service;
+
+        public AccountController(IUserService service)
+        {
+            _service = service;
+        }
+        public ActionResult Login() //????
         {
             return View();
         }
@@ -31,13 +36,24 @@ namespace Shop.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
+                var user = Mapper.Map<User>(model);
+
+                _service.AddUserAsync(user);
+
                 FormsAuthentication.SetAuthCookie(model.Name, true);
+
+                return RedirectToAction("../Action/Index");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Пользователь с таким логином уже существует"); //??
             }
 
             return View(model);

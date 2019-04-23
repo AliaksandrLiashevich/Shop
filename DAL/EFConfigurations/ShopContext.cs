@@ -17,6 +17,8 @@ namespace DAL.EFConfigurations
 
         public DbSet<CartProductDb> CartProductsDB { get; set; }
 
+        public DbSet<UserDb> UsersDb { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new CartDbConfiguration());

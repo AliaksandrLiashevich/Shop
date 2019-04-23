@@ -37,7 +37,7 @@ namespace DAL.Repositories
             if (dbCartProducts.Count != 0)
             {
                 throw new DatabaseException(DatabaseException.ErrorType.WrongId,
-                    "This id doesn't match any cart");
+                    "This id doesn't match any cart product");
             }
 
             return dbCartProducts[0];
@@ -55,7 +55,7 @@ namespace DAL.Repositories
             if (dbCartProducts.Count != 0)
             {
                 throw new DatabaseException(DatabaseException.ErrorType.WrongId,
-                    "This id doesn't match any product");
+                    "This id doesn't match any cart product");
             }
 
             var dbCartProduct = dbCartProducts[0];

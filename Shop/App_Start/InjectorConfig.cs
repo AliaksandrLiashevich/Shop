@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Web.Mvc;
 using Autofac;
+using Autofac.Integration.Mvc;
 
 namespace Shop.App_Start
 {
-    public class IjectorConfig
+    public class InjectorConfig
     {
         public static void RegisterInjector()
         {
