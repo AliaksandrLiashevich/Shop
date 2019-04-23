@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using BLL.Interfaces.Models;
 using DAL.Interfaces.Entities;
-using Shop.Models;
 
 namespace DependencyResolver
 {
@@ -18,16 +17,6 @@ namespace DependencyResolver
             CreateMap<CartProductDb, CartProduct>();
             CreateMap<ProductDb, Product>();
             CreateMap<UserDb, User>();
-
-            CreateMap<LoginModel, User>();
-            CreateMap<RegisterModel, User>();
-            CreateMap<CartViewModel, Cart>();
-            CreateMap<ProductViewModel, Product>();
-
-            CreateMap<User, LoginModel>();
-            CreateMap<User, RegisterModel>();
-            CreateMap<Cart, CartViewModel>();
-            CreateMap<Product, ProductViewModel>();
         }
     }
 }

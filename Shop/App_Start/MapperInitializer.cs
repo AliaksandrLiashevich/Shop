@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.Interfaces.Models;
+using Shop.Models;
+using System;
 using System.Linq;
 
 namespace Shop.App_Start
@@ -7,7 +9,7 @@ namespace Shop.App_Start
     {
         public static void Initialize()
         {
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.StartsWith("Web")).ToArray();
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.StartsWith("Dep") || a.FullName.StartsWith("Shop")).ToArray();
 
             AutoMapper.Mapper.Initialize(cfg => cfg.AddProfiles(assemblies));
         }

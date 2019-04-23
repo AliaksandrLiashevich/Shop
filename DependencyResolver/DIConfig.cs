@@ -15,9 +15,11 @@ namespace DependencyResolver
             builder.RegisterType<CartRepository>().As<ICartRepository>();
             builder.RegisterType<ProductRepository>().As<IProductRepository>();
             builder.RegisterType<CartProductRepository>().As<ICartProductRepository>();
+            builder.RegisterType<UserRepository>().As<IUserRepository>();
             builder.RegisterType<CartService>().As<ICartService>();
             builder.RegisterType<ProductService>().As<IProductService>();
             builder.RegisterType<CartProductService>().As<ICartProductService>();
+            builder.RegisterType<UserService>().As<IUserService>();
         }
     }
 }

@@ -24,6 +24,7 @@ namespace DAL.EFConfigurations
             modelBuilder.Configurations.Add(new CartDbConfiguration());
             modelBuilder.Configurations.Add(new CartProductDbConfiguration());
             modelBuilder.Configurations.Add(new ProductDbConfiguration());
+            modelBuilder.Configurations.Add(new UserDbConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

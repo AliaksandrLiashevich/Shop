@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Interfaces.Exceptions
 {
@@ -28,7 +24,8 @@ namespace DAL.Interfaces.Exceptions
         public enum ErrorType
         {
             WrongId,
-            InvalidArgument
+            InvalidArgument,
+            InvalidName
         }
     }
 }

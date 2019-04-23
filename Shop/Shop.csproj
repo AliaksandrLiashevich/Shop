@@ -140,12 +140,12 @@
     <Compile Include="App_Start\InjectorConfig.cs" />
     <Compile Include="App_Start\MapperInitializer.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Configurations\MapperConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
@@ -210,6 +210,13 @@
       <Project>{a4e36d99-fabb-4f6d-a00c-eaa123140f8c}</Project>
       <Name>BLL.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DependencyResolver\DependencyResolver.csproj">
+      <Project>{ef6a9db1-a7be-4942-bc33-453ba2c014b4}</Project>
+      <Name>DependencyResolver</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

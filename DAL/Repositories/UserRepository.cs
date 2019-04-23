@@ -25,6 +25,13 @@ namespace DAL.Repositories
                 throw new DatabaseException(DatabaseException.ErrorType.InvalidArgument);
             }
 
+            var dbUser = await _context.UsersDb.Where(u => u.Name == model.Name).ToListAsync();
+
+            if (dbUser != null)
+            {
+                throw new DatabaseException(DatabaseException.ErrorType.InvalidName, "User with the same name exists in the database");
+            }
+
             _context.UsersDb.Add(model);
 
             await _context.SaveChangesAsync();

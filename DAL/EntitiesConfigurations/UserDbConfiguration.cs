@@ -11,6 +11,9 @@ namespace DAL.EntitiesConfigurations
             this.Property(user => user.Id).HasColumnName("cln_id");
             this.Property(user => user.Name).HasColumnName("cln_name");
             this.Property(user => user.Password).HasColumnName("cln_password");
+
+            this.HasOptional<CartDb>(user => user.CartDb)
+                .WithRequired(cart => cart.UserDb);
         }
     }
 }

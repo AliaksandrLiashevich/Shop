@@ -8,6 +8,8 @@ namespace DAL.Interfaces.Entities
 
         public int Quantity { get; set; }
 
+        public virtual UserDb UserDb { get; set; }
+
         public virtual ICollection<CartProductDb> CartProductsDB { get; set; }
     }
 }

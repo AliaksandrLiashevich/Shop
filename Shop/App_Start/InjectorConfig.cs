@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Web.Mvc;
+using System.Linq;
 using Autofac;
 using Autofac.Integration.Mvc;
 
@@ -10,11 +10,11 @@ namespace Shop.App_Start
         public static void RegisterInjector()
         {
             var builder = new ContainerBuilder();
-            var assembly = AppDomain.CurrentDomain.GetAssemblies();
+            var assembly = AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.StartsWith("Shop")).ToArray();
 
             builder.RegisterAssemblyModules(assembly);
 
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(builder.Build()));
+            System.Web.Mvc.DependencyResolver.SetResolver(new AutofacDependencyResolver(builder.Build()));
         }
     }
 }

@@ -9,12 +9,8 @@ namespace Shop.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly IUserService _service;
+        public IUserService _service;
 
-        public AccountController(IUserService service)
-        {
-            _service = service;
-        }
         public ActionResult Login() //????
         {
             return View();
