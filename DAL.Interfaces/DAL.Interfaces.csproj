@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\CartDB.cs" />
+    <Compile Include="Entities\CartDb.cs" />
     <Compile Include="Entities\CartProductDb.cs" />
     <Compile Include="Entities\ProductDb.cs" />
     <Compile Include="Exceptions\DatabaseException.cs" />
@@ -50,6 +50,5 @@
     <Compile Include="Repositories\ICartRepository.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
