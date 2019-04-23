@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shop.Filters;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,11 +11,10 @@ namespace Shop.Controllers
 {
     public class HomeController : Controller
     {
+        [Authentificate]
         public ActionResult Index()
         {
-            return RedirectToAction("../Account/Register");
-
-            FormsAuthentication.SetAuthCookie("User", true);
+            //return RedirectToAction("../Account/Register");
 
             return View();
         }

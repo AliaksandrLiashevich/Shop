@@ -1,6 +1,4 @@
-﻿using BLL.Interfaces.Models;
-using Shop.Models;
-using System;
+﻿using System;
 using System.Linq;
 
 namespace Shop.App_Start

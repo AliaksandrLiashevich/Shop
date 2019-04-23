@@ -27,7 +27,7 @@ namespace DAL.Repositories
 
             var dbUser = await _context.UsersDb.Where(u => u.Name == model.Name).ToListAsync();
 
-            if (dbUser != null)
+            if (dbUser.Count != 0)
             {
                 throw new DatabaseException(DatabaseException.ErrorType.InvalidName, "User with the same name exists in the database");
             }
@@ -36,6 +36,7 @@ namespace DAL.Repositories
 
             await _context.SaveChangesAsync();
         }
+
         public async Task<UserDb> GetByIdAsync(int id)
         {
             var dbUsers = await _context.UsersDb.Where(p => p.Id == id).ToListAsync();

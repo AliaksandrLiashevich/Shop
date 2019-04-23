@@ -11,6 +11,11 @@ namespace Shop.Controllers
     {
         public IUserService _service;
 
+        public AccountController(IUserService service)
+        {
+            _service = service;
+        }
+
         public ActionResult Login() //????
         {
             return View();
@@ -45,7 +50,7 @@ namespace Shop.Controllers
 
                 FormsAuthentication.SetAuthCookie(model.Name, true);
 
-                return RedirectToAction("../Action/Index");
+                return RedirectToAction("../Home/Index");
             }
             else
             {
