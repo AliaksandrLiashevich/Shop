@@ -18,9 +18,7 @@ namespace BLL.Services
         }
 
         public async Task AddCartAsync(Cart cart)
-        {
-            //нужна валидация модели
-
+        { 
             var dbCart = Mapper.Map<CartDb>(cart);
 
             await _repository.AddCartAsync(dbCart);

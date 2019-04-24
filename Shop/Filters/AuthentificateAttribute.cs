@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Mvc.Filters;
 
 namespace Shop.Filters
@@ -25,7 +21,7 @@ namespace Shop.Filters
             {
                 filterContext.Result = new RedirectToRouteResult(
                     new System.Web.Routing.RouteValueDictionary {
-                    { "controller", "Account" }, { "action", "Register" }
+                    { "controller", "Account" }, { "action", "Login" }
                    });
             }
         }

@@ -32,6 +32,8 @@ namespace DAL.Repositories
                 throw new DatabaseException(DatabaseException.ErrorType.InvalidName, "User with the same name exists in the database");
             }
 
+            model.CartDb = new CartDb();
+
             _context.UsersDb.Add(model);
 
             await _context.SaveChangesAsync();

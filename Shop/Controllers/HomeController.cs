@@ -14,7 +14,7 @@ namespace Shop.Controllers
         [Authentificate]
         public ActionResult Index()
         {
-            //return RedirectToAction("../Account/Register");
+            return RedirectToAction("../Account/Register");
 
             return View();
         }

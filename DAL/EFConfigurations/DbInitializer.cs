@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using DAL.Interfaces.Entities;
 
 namespace DAL.EFConfigurations
 {
@@ -6,9 +7,9 @@ namespace DAL.EFConfigurations
     {
         protected override void Seed(ShopContext context)
         {
-            //Please, add data in this section
+            //Please put data here
 
-            base.Seed(context);
+            context.SaveChanges();
         }
     }
 }
