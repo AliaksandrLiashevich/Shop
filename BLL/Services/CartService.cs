@@ -17,11 +17,9 @@ namespace BLL.Services
             _repository = repository;
         }
 
-        public async Task AddCartAsync(Cart cart)
+        public async Task AddCartAsync(string userName)
         { 
-            var dbCart = Mapper.Map<CartDb>(cart);
-
-            await _repository.AddCartAsync(dbCart);
+            await _repository.AddCartAsync(userName);
         }
 
         public async Task<Cart> GetByIdAsync(int id)

@@ -6,7 +6,7 @@ namespace BLL.Interfaces.Services
 {
     public interface ICartService
     {
-        Task AddCartAsync(Cart cart);
+        Task AddCartAsync(string userName);
 
         Task<Cart> GetByIdAsync(int id);
 

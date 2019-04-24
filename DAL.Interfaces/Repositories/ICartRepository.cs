@@ -6,7 +6,7 @@ namespace DAL.Interfaces.Repositories
 {
     public interface ICartRepository
     {
-        Task AddCartAsync(CartDb model);
+        Task AddCartAsync(string userName);
 
         Task<CartDb> GetByIdAsync(int id);
 

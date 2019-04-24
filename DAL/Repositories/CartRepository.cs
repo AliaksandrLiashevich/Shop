@@ -18,14 +18,19 @@ namespace DAL.Repositories
             _context = context;
         }
 
-        public async Task AddCartAsync(CartDb model)
+        public async Task AddCartAsync(string userName)
         {
-            if (model == null)
+            var users = await _context.UsersDb.Where(u => u.Name == userName).ToListAsync();
+
+            if (users.Count == 0)
             {
-                throw new DatabaseException(DatabaseException.ErrorType.InvalidArgument);
+                throw new DatabaseException(DatabaseException.ErrorType.InvalidArgument, 
+                    string.Format("User with name = {0} doesn't exist", userName));
             }
 
-            _context.CartsDB.Add(model);
+            var user = users[0];
+
+            user.CartDb = new CartDb();
 
             await _context.SaveChangesAsync();
         }

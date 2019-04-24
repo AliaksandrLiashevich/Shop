@@ -7,9 +7,9 @@ using DAL.Repositories;
 
 namespace DependencyResolver 
 {
-    public class DIConfig : Module
+    public static class DIConfig
     {
-        protected override void Load(ContainerBuilder builder)
+        public static void Register(ContainerBuilder builder)
         {
             builder.RegisterType<ShopContext>();
             builder.RegisterType<CartRepository>().As<ICartRepository>();

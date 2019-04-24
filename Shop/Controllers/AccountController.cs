@@ -50,7 +50,7 @@ namespace Shop.Controllers
 
                 FormsAuthentication.SetAuthCookie(model.Name, true);
 
-                return RedirectToAction("../Home/Index");
+                return RedirectToAction("../Home/About");
             }
             else
             {
